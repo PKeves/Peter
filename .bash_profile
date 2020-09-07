@@ -5,30 +5,38 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export TIME_STYLE=long-iso  # sets yyyy-mm-dd hh:mm as default date format
 
+bd(){
+    cat $1 ; printf "\n"
+}  #body
 alias bp='. ~/.bash_profile'  #build profile
 alias cp='cp -R'
+cpop(){
+    gcp -R $1 $2
+    op $2
+}
+alias df='code -d'
 alias ex='exit'
 fd() {
     dir="" ; name=""
     if [[ $# == 2 ]] ; then dir="$1" ; name="$2" ; else dir="$PWD" ; name="$1" ; fi
     gfind $dir -type d -iname "$name" 
-}  #find directory
+}  #find $dir
 ff() {
     dir="" ; name=""
     if [[ $# == 2 ]] ; then dir="$1" ; name="$2" ; else dir="$PWD" ; name="$1" ; fi
     gfind $dir -type f -iname "$name" 
-} #find file
-alias fp='ps -eaf | grep '  #find process
+} #find $file
+alias fp='ps -eaf | grep '  #find $process
 fs() {
     dir="" ; string=""
     if [[ $# == 2 ]] ; then dir="$1" ; string="$2" ; else dir="$PWD" ; string="$1" ; fi
     ggrep -nirP --include \*$3 --exclude \*.onnx "$string" "$dir" | awk -F: '{gsub(/^[ \t]+/, "", $2); gsub (/[ \t]+$/, "", $2); gsub(/^[ \t]+/, "", $3); gsub (/[ \t]+$/, "", $3); $3=$3$4$5$6$7$8$9$10; printf ("%s! %3s %s\n", $1, $2, substr($3,0,60))}' | column -t -s '!'
-}  #find string
+}  #find $string
 alias gp='chmod -R 777'  #grant permissions
-hd() { if [ $# -eq 2 ] ; then head -n $1 $2; printf "\n"; else head $1 ; printf "\n"; fi } #head
+hd() { if [ $# -eq 2 ] ; then head -n $2 $1; printf "\n"; else head $1 ; printf "\n"; fi }  #head $file | head $file $limit
 alias hk='/Users/root/code/shell/housekeeper.sh'  #housekeeping
 alias hs='history'  #history
-alias i='. /Users/root/code/shell/i.sh'  #switch host
+alias i='. /Users/root/code/i.sh'  #switch host
 alias ka='killall'  #kill all
 alias kp='kill -9'  #kill process
 alias lj='jobs'  #list jobs
@@ -45,7 +53,7 @@ md() {
     else
     vim $1
     fi
-}  #modify: md file or ls | md
+}  #modify: md $file
 alias me='whoami'  #me
 mv() {
     if [[ $# -eq 2 ]] ; then 
@@ -56,15 +64,18 @@ mv() {
     gmv -t $target $@
     fi
 }  #move file_a file_b ... file_z to target
+mvop() {
+    gmv $1 $2
+    open $2
+}
 alias nd='mkdir -p'  #new directory
 ndsd(){ mkdir -p $1 && cd $1; }
 alias nf='touch'  #new file
 nfop(){ for var in "$@"; do touch $var && code -r $var; done }
-alias op='open'  #open
+op(){
+if [[ $# == 2 ]] ; then code -g $1:$2 ; else open $1 ; fi
+}   #open $file | open $file $line
 rc() { wc -l $@ | awk '{ printf $2 " " $1 "\n" }' | column -t | sed 's/ //'; }  #row count
-rd(){
-    cat $1 ; printf "\n"
-}  #read
 alias rm='rm -r'  #remove
 alias sc='/Users/root/code/shell/source_control.sh'  #source control
 sd() { if [ $# -eq 0 ] ; then cd . && la ; else cd $1 && la $2 ;fi }  #swich directory
@@ -77,4 +88,4 @@ alias sdka='sd /Users/root/karabiner'
 alias sdos='sd /'
 alias sdsp='sd /Users/root/spotify'
 alias sdtm='sd /Users/root/tmp'
-tl() { if [ $# -eq 2 ] ; then tail -n $1 $2; printf "\n"; else tail $1 ; printf "\n"; fi } #tail
+tl() { if [ $# -eq 2 ] ; then tail -n $2 $1; printf "\n"; else tail $1 ; printf "\n"; fi }  #tail $file | tail $file $limit
