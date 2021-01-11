@@ -1,0 +1,19 @@
+{
+	"activationEvents": [ "*" ],
+	"contributes": {
+        "keybindings": [
+            {
+                "command": "extension.closeEditor",
+                "key": "ctrl+w",
+				"mac": "cmd+w"
+            }
+        ]
+    },
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"main": "./extension",
+	"name": "close-editor",
+	"publisher": "vsc",
+	"version": "1.0.0"
+}
