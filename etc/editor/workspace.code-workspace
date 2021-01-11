@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "apps",
+			"path": "../../../apps"
+		},
+		{
+			"name": "git",
+			"path": "../../../git"
+		},
+		{
+			"name": "lib",
+			"path": "../../../lib"
+		},
+		{
+			"name": "tmp",
+			"path": "../../../tmp"
+		},
+	],
+	"settings": {}
+}
