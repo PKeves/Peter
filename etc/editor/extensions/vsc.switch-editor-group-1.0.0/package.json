@@ -1,0 +1,20 @@
+{
+	"activationEvents": [ "*" ],
+	"contributes": {
+        "keybindings": [
+            {
+                "command": "extension.switchEditorGroup",
+                "key": "shift+ctrl+e",
+				"mac": "shift+cmd+e",
+				"args": 1
+            }
+        ]
+    },
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"main": "./extension",
+	"name": "switch-editor-group",
+	"publisher": "vsc",
+	"version": "1.0.0"
+}
