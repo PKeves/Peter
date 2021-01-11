@@ -1,0 +1,10 @@
+{
+	"activationEvents": [ "*" ],
+	"engines": {
+		"vscode": "^1.28.0"
+	},
+	"main": "./extension",
+	"name": "get-checksum",
+	"publisher": "vsc",
+	"version": "1.0.0"
+}
