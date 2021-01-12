@@ -93,20 +93,6 @@ else{
 }
 return
 
-$e::
-if GetKeyState(“RControl”,”P,”){
-	IfWinExist ahk_exe DBArt.exe
-		win_activate ahk_exe DBArt.exe
-	else
-		run,”path_to_executable”
-	WinWait ahk_exe DBArt.exe
-	WinActivate ahk_exe DBArt.exe
-	WinWaitActive ahk_exe DBArt.exe
-}
-else{
-	SendInput, {blind}e
-}
-return
 
 $r::
 if GetKeyState(“RControl”,”P,”){
@@ -138,18 +124,6 @@ else{
 }
 return
 
-$y::
-if GetKeyState(“RControl”,”P,”){
-	IfWinExist ("ahk_clasas LyncTabFrameHooostWindowClass"){
-        winactivate ahk_class LyncTabFrameHooostWindowClass
-    }
-	else
-		run,”path_to_executable”
-}
-else{
-	SendInput, {blind}y
-}
-return
 
 $u::
 if GetKeyState(“RControl”,”P,”){
@@ -293,10 +267,6 @@ else {
 		Send, {e}
 		Send, {Tab}
 		Send, {Space}
-	}
-	if WinActivate("ahk_exe lync.exe"){
-		;share screen
-		Send, +^{Space}
 	}
 	else{
 		SendInput, ^{s}
@@ -447,9 +417,6 @@ else {
 	if WinActivate("ahk_exe OUTLOOK.exe"){
 		;find
 		Send, ^{e}
-	}
-	if WinActivate("ahk_exe lync.exe"){
-		Send, +!^3
 	}
 	else{
 		SendInput, ^{f}
@@ -904,39 +871,6 @@ Clipboard =
 Clipboard := result3
 return
 
-#ifWinActive ahk_exe DBArt.EXE
-
-$b::
-if GetKeyState("RControl", "P"){
-	Send, !{F4}
-}
-
-else
-	SendInput {blind}b
-return
-
-$n::
-if GetKeyState("RControl", "P"){
-	Send, ^{n}
-}
-
-else
-	SendInput {blind}n
-return
-
-+^e::
-Send, {END}
-Send, +{Home}
-Send, +{Up}
-Send, +{Up}
-Send, +{Up}
-Send, ^{e}
-return
-
-^r::
-Send, ^{e}
-return
-
 #ifWinActive ahk_exe EXCEL.EXE
 
 $b::
@@ -1035,52 +969,3 @@ Send, ^{r}
 return
 
 ^e::^Enter
-
-
-
-#ifWinActive ahk_exe lync.exe
-
-$b::
-if GetKeyState("RControl", "P"){
-	Send, !{F4}
-}
-
-else
-	SendInput {blind}b
-return
-
-$n::
-if GetKeyState("RControl", "P"){
-	Send, ^{n}
-}
-
-else
-	SendInput {blind}n
-return
-
-^h::
-Send, +!^r
-Send, ^{3}
-Sleep, 500
-Send, {Tab 4}
-return
-
-^e::
-Send, !{q}
-return
-
-^b::
-Send, #{m}
-return
-
-+^b::
-Send, #{F4}
-return
-
-^w::
-Send, {esc}
-return
-
-^t::
-Send, !{v}
-return
