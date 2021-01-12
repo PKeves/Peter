@@ -596,13 +596,9 @@ if GetKeyState(“RControl”,”P,”){
 
     App0 := "Google Chrome"
     App1 := "Studio Code"
-    App2 := "DBArtisan"
     App3 := "Excel"
     App4 := "Outlook"
-    App5 := "Skype for Business"
     App6 := "Symphony"
-    App7 := "Program Manager"
-    App8 := "Host Agent"
     App9 := "Snipping Tool"
     Loop, %WindowList%{
         WinGetTitle, Title, % "ahk_id " . WindowList%A_Index%
@@ -613,9 +609,6 @@ if GetKeyState(“RControl”,”P,”){
         IfNotInString, Title, %Ap4%
         IfNotInString, Title, %Ap5%
         IfNotInString, Title, %Ap6%
-        IfNotInString, Title, %Ap7%
-        IfNotInString, Title, %Ap8%
-        IfNotInString, Title, %Ap9%
         {
             WinClose, % "ahk_id " . WindowList%A_Index%
         }
