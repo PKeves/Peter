@@ -1,13 +1,12 @@
 Atom One Dark Theme      - Mahmoud Ali
 Better Comments          - Aaron Bond
 Bookmarks                - Alessandro Fragnani
-Bracket Pair Colorizer   - CoenraadS
+Bracket Pair Colorizer 2 - CoenraadS
 close-editor             - vsc
 Customize UI             - iocave
 Debugger for Java        - Microsofot
 ESLint                   - Dirk Baumer
 File Utils               - Steffen Leistner
-GitLens Git supercharged - Eric Amodio
 Java Extension Pack       - Microsoft
 Java Test Runner          - Microsoft
 Jupyter                   - Microsoft
@@ -22,9 +21,7 @@ Project Manager for Java  - Microsoft
 Python                    - Microsoft
 Sort lines                - Daniel Imms
 switch-editor-group       - vsc
-Test Explorer UI          - Holger Beni
 Vim                       - vscodevim
 Visual Studio IntelliCode - Microsoft
 vscode-pdf                - tomoki1207
-XML Tools                 - Qub
 get-checksum              - vsc
