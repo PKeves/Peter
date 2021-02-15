@@ -3,6 +3,9 @@
 
 "todo:
 "noremap <expr> j v:count ? 'j' : 'gj' "noremap <expr> k v:count ? 'k' : 'gk'
+"autowrite all buffer
+"seperate buffers for each vim split window
+"esc or c-o in insert mode when doing c commands
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "settings
@@ -15,6 +18,11 @@ augroup auto_comment
 	au!
 	au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
+
+"files
+set path+=**
+set wildmenu
+set wildignore+=**/node_modules/**
 
 "general
 colorscheme delek
@@ -54,15 +62,38 @@ set smartcase
 set number
 set numberwidth=1
 set relativenumber
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"insert mode
+"insert mode + all c commands from all the other mods
+"<c-a> - <c-x> : <c-1> : <c-9>
+inoremap <c-a> <esc>1gt
+inoremap <c-u> <esc>2gt
+inoremap <c-d> <esc>3gt
+inoremap <c-f> <esc>4gt
+inoremap <c-g> <esc>5gt
+inoremap <c-h> <esc>6gt
+inoremap <c-j> <esc>7gt
+inoremap <c-b> <esc>8gt
+inoremap <c-x> <esc>9gt
+inoremap <c-x> <esc>9gt
 inoremap <tab> <c-r>=Smart_TabComplete()<cr>
 inoremap <c-w> <esc>:q!<cr>
+inoremap <c-p> <esc>"0p
+"<s-c-p> : <c-k>
+inoremap <c-k> <esc>"0P
+"<c-t> : <c-i>
+inoremap <c-i> <esc> :tabnew 
+"<s-c-t> : <c-e>
+inoremap <c-e> <esc> :file 
+inoremap <c-s> <esc> :wa <cr>
 inoremap jj <esc>ciw
 inoremap jk <esc>cc
+inoremap <c-Z> <esc>u
+"<s-c-z> : <c-r>
+inoremap <c-y> <esc><c-r>
 inoremap <left> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
@@ -76,13 +107,27 @@ nnoremap < <<
 nnoremap > >>
 
 "normal, visuaul select, operator pending mode
+"<c-a> - <c-x> : <c-1> : <c-9>
+noremap <c-a> 1gt
 noremap ! qt
+noremap <c-u> 2gt
 noremap @ @t
+noremap <c-d> 3gt
+noremap <c-f> 4gt
+noremap <c-g> 5gt
+noremap <c-h> 6gt
+noremap <c-j> 7gt
+noremap <c-b> 8gt
+noremap <c-x> 9gt
 noremap - <c-x>
 noremap + <c-a>
 noremap q <c-o>zz
 noremap Q <c-i>zz
 noremap <c-w> :q!<cr>
+"<c-t> : <c-i>
+noremap <c-i> :tabnew 
+"<s-c-t> : <c-e>
+noremap <c-e> :file 
 noremap Y y$
 noremap U <c-v>
 noremap <c-p> "0p
@@ -90,6 +135,7 @@ noremap <c-p> "0p
 noremap <c-k> "0P
 noremap <bslash> nzz
 noremap \| Nzz
+noremap <c-s> :wa <cr>
 noremap <expr> <silent> dd (getline('.') =~ '^$' ? '"_' : '').'dd'
 noremap gm `.zz
 noremap H ^
@@ -111,10 +157,10 @@ noremap n *zz
 noremap N #zz
 noremap m mt
 noremap M `tzz
-noremap / :%s/\<<c-r>=expand('<cword>')<cr>\>//gc<Left><Left><Left>
-noremap ? :
+noremap / :
+noremap ? :%s/\<<c-r>=expand('<cword>')<cr>\>//gc<Left><Left><Left>
 noremap <space> /
-"<s-space> :  c-l>
+"<s-space> : <c-l>
 noremap <c-l> ?
 noremap <left> <nop>
 noremap <up> <nop>
