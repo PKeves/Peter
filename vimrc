@@ -71,7 +71,7 @@ set relativenumber
 "<c-a> - <c-x> : <c-1> : <c-9>
 inoremap <c-a> <esc>1gt
 inoremap <c-u> <esc>2gt
-inoremap <c-d> <esc>3gt
+inoremap <c-c> <esc>3gt
 inoremap <c-f> <esc>4gt
 inoremap <c-g> <esc>5gt
 inoremap <c-h> <esc>6gt
@@ -84,10 +84,11 @@ inoremap <c-w> <esc>:q!<cr>
 inoremap <c-p> <esc>"0p
 "<s-c-p> : <c-k>
 inoremap <c-k> <esc>"0P
-"<c-t> : <c-i>
-inoremap <c-i> <esc> :tabnew 
+"<c-t> : <c-n>
+inoremap <c-n> <esc> :tabnew 
 "<s-c-t> : <c-e>
 inoremap <c-e> <esc> :file 
+"tmp
 inoremap <c-s> <esc> :wa <cr>
 inoremap jj <esc>ciw
 inoremap jk <esc>cc
@@ -112,7 +113,7 @@ noremap <c-a> 1gt
 noremap ! qt
 noremap <c-u> 2gt
 noremap @ @t
-noremap <c-d> 3gt
+noremap <c-i> 3gt
 noremap <c-f> 4gt
 noremap <c-g> 5gt
 noremap <c-h> 6gt
@@ -124,8 +125,8 @@ noremap + <c-a>
 noremap q <c-o>zz
 noremap Q <c-i>zz
 noremap <c-w> :q!<cr>
-"<c-t> : <c-i>
-noremap <c-i> :tabnew 
+"<c-t> : <c-n>
+noremap <c-n> :tabnew 
 "<s-c-t> : <c-e>
 noremap <c-e> :file 
 noremap Y y$
@@ -134,7 +135,8 @@ noremap <c-p> "0p
 "<s-c-p> : <c-k>
 noremap <c-k> "0P
 noremap <bslash> nzz
-noremap \| Nzz
+noremap <bar> Nzz
+"tmp
 noremap <c-s> :wa <cr>
 noremap <expr> <silent> dd (getline('.') =~ '^$' ? '"_' : '').'dd'
 noremap gm `.zz
